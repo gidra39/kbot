@@ -18,7 +18,11 @@ export TELE_TOKEN
 
 Use scenarios:
 
-1. To check bot version type in "/start hello" in Telegram
+1. To check bot version type in "/start version" in Telegram
+
+2. To greet the bot type in "/start hello" in Telegram
+
+3. To get a random picked by creator music video on youtube type in "/start music" in Telegram
 
 Token:
 5784977823:AAG4ogsHgyVcLXauchTb2sAuFT1UfHN7a1Q
