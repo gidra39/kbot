@@ -5,9 +5,9 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"time"
-	"log"
 
 	"github.com/spf13/cobra"
 	telebot "gopkg.in/telebot.v3"
@@ -20,9 +20,9 @@ var (
 
 // kbotCmd represents the kbot command
 var kbotCmd = &cobra.Command{
-	Use:   "kbot",
+	Use:     "kbot",
 	Aliases: []string{"start"},
-	Short: "A brief description of your command",
+	Short:   "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -47,16 +47,16 @@ to quickly create a Cobra application.`,
 			log.Print(m.Message().Payload, m.Text())
 			payload := m.Message().Payload
 
-			switch payload{
-				case "version":
-					err = m.Send(fmt.Sprintf(appVersion))
-			
-				case "hello":
-					err = m.Send(fmt.Sprintf("Hello!"))
-				
-				case "music":
-					err = m.Send(fmt.Sprintf("https://www.youtube.com/watch?v=CTAud5O7Qqk"))
-				}
+			switch payload {
+			case "version":
+				err = m.Send(fmt.Sprintf(appVersion))
+
+			case "hello":
+				err = m.Send(fmt.Sprintf("Hello!"))
+
+			case "music":
+				err = m.Send(fmt.Sprintf("https://www.youtube.com/watch?v=CTAud5O7Qqk"))
+			}
 
 			return err
 		})
