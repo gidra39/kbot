@@ -27,7 +27,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
         registry: ghcr.io
-        username: $GITHUB_USER
+        username: ${{ secrets.GHCR_USERNAME }}
         password: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Build&Push
