@@ -21,11 +21,11 @@ jobs:
         run: make test
 
       - name: Login to GitHub Container registry
-      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-      env:
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        env:
         GITHUB_USER: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
+        with:
         registry: ghcr.io
         username: $GITHUB_USER
         password: ${{ secrets.GITHUB_TOKEN }}
