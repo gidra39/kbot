@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: gidra39
-  tag: "v.1.0.7-b686c93"
+  tag: "v.1.0.7-a2d617a"
   os: linux
   arch: amd64
 secret:
