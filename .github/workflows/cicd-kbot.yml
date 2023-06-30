@@ -21,7 +21,7 @@ jobs:
         run: make test
 
       - name: Log in to the Container registry
-        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ GHCR_USERNAME }} --password-stdin
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
         
       - name: Build&Push
         env:
