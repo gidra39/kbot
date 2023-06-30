@@ -1,5 +1,6 @@
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY=gidra39
+REGISTRY=ghcr.io
+USER=gidra39
 VERSION= $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux 
 TARGETARCH=amd64
@@ -19,10 +20,10 @@ build: format get
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/gidra39/kbot/cmd.appVersion=${VERSION}
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${USER}/${APP}:${VERSION}-${TARGETARCH}
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${REGISTRY}/${USER}/${APP}:${VERSION}-${TARGETARCH}
 
 clean: 
 	rm -rf kbot
