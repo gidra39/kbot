@@ -1,7 +1,9 @@
 name: cicd-kbot
 
 on:
-  push
+  push:
+    branches:
+      - 'develop'
 
 env:
   TARGETARCH: amd64
