@@ -20,8 +20,15 @@ jobs:
       - name: Run test
         run: make test
 
-      - name: Log in to the Container registry
-        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+      - name: Login to GitHub Container registry
+      uses: docker/login-action@v1
+      env:
+        GITHUB_USER: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        registry: ghcr.io
+        username: $GITHUB_USER
+        password: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Build&Push
         env:
