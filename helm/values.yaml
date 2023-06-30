@@ -6,9 +6,9 @@ replicaCount: 1
 
 image:
   repository: gidra39
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.5-0bf944f-arm64"
+  tag: "v.1.0.6-df97397"
+  os: linux
+  arch: amd64
 secret:
   name: "kbot"
   env: "TELE_TOKEN"
