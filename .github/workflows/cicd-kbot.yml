@@ -22,11 +22,7 @@ jobs:
 
       - name: Log in to the Container registry
         run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ GHCR_USERNAME }} --password-stdin
-        with:
-          registry: https://ghcr.io
-          username: ${{ secrets.GHCR_USERNAME }}
-          password: ${{ secrets.GHCR_TOKEN }}
-
+        
       - name: Build&Push
         env:
           APP: "kbot"
