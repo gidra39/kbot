@@ -33,15 +33,14 @@ spec:
           path: /dev/mem
           type: ""
         name: dev-mem
-      containers:
-        - name: {{ .Release.Name }}
-          image: {{ .Values.image.repository }}/{{ .Chart.Name }}:{{ .Values.image.tag }}-{{ .Values.image.arch | default "amd64"}}
+     containers:
+        - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           volumeMounts:
           - mountPath: /dev/mem
             name: dev-mem
-          image: {{ .Values.image.repository }}/{{ .Chart.Name }}:{{ .Values.image.tag }}-{{ .Values.image.arch | default "arm64"}}
+          image: {{ .Values.image.repository }}/{{ .Chart.Name }}:{{ .Values.image.tag }}-{{ .Values.image.arch | default "amd64"}}
           env:
           - name: {{ .Values.secret.env }}
             valueFrom:
