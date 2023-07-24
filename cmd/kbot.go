@@ -90,6 +90,7 @@ to quickly create a Cobra application.`,
 
 			log.Print(m.Message().Payload, m.Text())
 			payload := m.Message().Payload
+			pmetrics(context.Background(), payload)
 
 			switch payload {
 			case "version":
@@ -111,6 +112,8 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
+	ctx := context.Background()
+	initMetrics(ctx)
 	rootCmd.AddCommand(kbotCmd)
 
 	// Here you will define your flags and configuration settings.
@@ -122,4 +125,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// kbotCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	// Initialize OpenTelemetry tracer
+
 }
